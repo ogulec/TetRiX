@@ -1,5 +1,4 @@
-# TetRiX
----
+# TetRiX 
 
 **TetRiX** is a retro tetris game powered by **Flutter**.
 
