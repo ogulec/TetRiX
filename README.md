@@ -10,9 +10,9 @@ It's a self Flutter learning fun-app which is re-designed and re-coded.
 
 ## **Preview**
 
-![preview](./preview//screen1.png)
+![preview](./preview/screen1.png)
 
-![preview](./preview//screen3.png)
+![preview](./preview/screen2.png)
 
 ## **Environment**
 
