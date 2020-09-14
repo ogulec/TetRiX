@@ -1,12 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/generated/i18n.dart';
-import 'package:tetris/material/audios.dart';
-import 'package:tetris/panel/page_portrait.dart';
+import 'package:TetRiX/gamer/gamer.dart';
+import 'package:TetRiX/generated/i18n.dart';
+import 'package:TetRiX/material/audios.dart';
+import 'package:TetRiX/panel/page_portrait.dart';
 
 import 'gamer/keyboard.dart';
 
@@ -36,8 +34,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'tetris',
-      localizationsDelegates: [S.delegate, GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+      debugShowCheckedModeBanner: false,
+      title: 'TetRiX',
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
       navigatorObservers: [routeObserver],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
@@ -52,7 +55,7 @@ class MyApp extends StatelessWidget {
 
 const SCREEN_BORDER_WIDTH = 3.0;
 
-const BACKGROUND_COLOR = const Color(0xffefcc19);
+const BACKGROUND_COLOR = Color(0x0FFcdcdcd);
 
 class _HomePage extends StatelessWidget {
   @override

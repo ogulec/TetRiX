@@ -1,4 +1,4 @@
-package tech.soit.flutter_tetris
+package tech.mist.tetrix
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

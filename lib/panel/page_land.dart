@@ -22,33 +22,11 @@ class PageLand extends StatelessWidget {
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 40, bottom: 40),
-                      child: DropButton(),
+                      child: Lines(),
                     )
                   ],
                 ),
-              ),
-              _ScreenDecoration(child: Screen.fromHeight(height * 0.8)),
-              Expanded(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Spacer(),
-                        FlatButton(
-                            onPressed: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => DonationDialog());
-                            },
-                            child: Text(S.of(context).reward))
-                      ],
-                    ),
-                    Spacer(),
-                    DirectionController(),
-                    SizedBox(height: 30),
-                  ],
-                ),
-              ),
+              ), 
             ],
           ),
         ),

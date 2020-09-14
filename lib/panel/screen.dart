@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/material/briks.dart';
-import 'package:tetris/material/material.dart';
+import 'package:TetRiX/gamer/gamer.dart';
+import 'package:TetRiX/material/briks.dart';
+import 'package:TetRiX/material/material.dart';
 import 'package:vector_math/vector_math_64.dart' as v;
 
 import 'player_panel.dart';
@@ -63,8 +63,7 @@ class Shake extends StatefulWidget {
   @override
   _ShakeState createState() => _ShakeState();
 }
-
-///摇晃屏幕
+ 
 class _ShakeState extends State<Shake> with TickerProviderStateMixin {
   AnimationController _controller;
 

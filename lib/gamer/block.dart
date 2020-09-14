@@ -30,8 +30,7 @@ const BLOCK_SHAPES = {
     [1, 1, 1]
   ]
 };
-
-///方块初始化时的位置
+ 
 const START_XY = {
   BlockType.I: [3, 0],
   BlockType.L: [4, -1],
@@ -41,8 +40,7 @@ const START_XY = {
   BlockType.O: [4, -1],
   BlockType.T: [4, -1],
 };
-
-///方块变换时的中心点
+ 
 const ORIGIN = {
   BlockType.I: [
     [1, -1],

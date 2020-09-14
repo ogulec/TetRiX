@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tetris/material/briks.dart';
-import 'package:tetris/material/images.dart';
-import 'package:tetris/gamer/gamer.dart';
+import 'package:TetRiX/material/briks.dart';
+import 'package:TetRiX/material/images.dart';
+import 'package:TetRiX/gamer/gamer.dart';
 
 const _PLAYER_PANEL_PADDING = 6;
 
@@ -30,7 +30,7 @@ class PlayerPanel extends StatelessWidget {
           border: Border.all(color: Colors.black),
         ),
         child: Stack(
-          children: <Widget>[
+          children: <Widget>[ 
             _PlayerPad(),
             _GameUninitialized(),
           ],
@@ -66,10 +66,10 @@ class _GameUninitialized extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             IconDragon(animate: true),
-            SizedBox(height: 16),
+            SizedBox(height: 40),
             Text(
-              "tetrix",
-              style: TextStyle(fontSize: 20),
+              "TetRiX",
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
           ],
         ),

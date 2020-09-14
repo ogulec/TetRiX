@@ -2,197 +2,177 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/generated/i18n.dart';
+import 'package:TetRiX/gamer/gamer.dart';
+import 'package:TetRiX/generated/i18n.dart';
 
 class GameController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
-      child: Row(
+      height: 250,
+      child: Stack(
         children: <Widget>[
-          Expanded(child: LeftController()),
-          Expanded(child: DirectionController()),
+          Stack(children: <Widget>[LeftController()]),
+          Stack(children: <Widget>[DirectionController()]),
+          Stack(children: <Widget>[Down()]),
         ],
       ),
     );
   }
 }
 
-const Size _DIRECTION_BUTTON_SIZE = const Size(48, 48);
-
-const Size _SYSTEM_BUTTON_SIZE = const Size(28, 28);
-
-const double _DIRECTION_SPACE = 16;
-
-const double _iconSize = 16;
+const Size _DIRECTION_BUTTON_SIZE = const Size(39, 20);
+const double _DIRECTION_SPACE = 1;
 
 class DirectionController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Container(
+      margin: const EdgeInsets.only(left: 10),
       alignment: Alignment.center,
-      children: <Widget>[
-        SizedBox.fromSize(size: _DIRECTION_BUTTON_SIZE * 2.8),
-        Transform.rotate(
-          angle: math.pi / 4,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+      height: 240,
+      width: 240,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/controller.png'),
+            fit: BoxFit.cover),
+      ),
+      child: Stack(
+        children: <Widget>[
+          Row(
             children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_drop_up,
-                          size: _iconSize,
-                        )),
+              SizedBox.fromSize(size: _DIRECTION_BUTTON_SIZE * 0.75),
+              Transform.scale(
+                scale: 0.8,
+                child: Transform.rotate(
+                  angle: math.pi / 4,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      SizedBox(height: _DIRECTION_SPACE),
+                      Row(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.add_circle),
+                              iconSize: 75,
+                              color: Colors.blue.withOpacity(0),
+                              onPressed: () {
+                                Game.of(context).rotate();
+                              }),
+                          IconButton(
+                              icon: Icon(Icons.add_circle),
+                              iconSize: 75,
+                              color: Colors.blue.withOpacity(0),
+                              onPressed: () {
+                                Game.of(context).right();
+                              }),
+                          SizedBox(width: _DIRECTION_SPACE),
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.add_circle),
+                              iconSize: 75,
+                              color: Colors.blue.withOpacity(0),
+                              onPressed: () {
+                                Game.of(context).left();
+                              }),
+                          SizedBox(width: _DIRECTION_SPACE),
+                          IconButton(
+                              icon: Icon(Icons.add_circle),
+                              iconSize: 75,
+                              color: Colors.blue.withOpacity(0),
+                              onPressed: () {
+                                Game.of(context).down();
+                              }),
+                          SizedBox(width: _DIRECTION_SPACE),
+                        ],
+                      ),
+                    ],
                   ),
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_right,
-                          size: _iconSize,
-                        )),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_left,
-                          size: _iconSize,
-                        )),
-                  ),
-                  Transform.scale(
-                    scale: 1.5,
-                    child: Transform.rotate(
-                        angle: -math.pi / 4,
-                        child: Icon(
-                          Icons.arrow_drop_down,
-                          size: _iconSize,
-                        )),
-                  ),
-                ],
+                ),
               ),
             ],
           ),
-        ),
-        Transform.rotate(
-          angle: math.pi / 4,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(height: _DIRECTION_SPACE),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _Button(
-                      enableLongPress: false,
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).rotate();
-                      }),
-                  SizedBox(width: _DIRECTION_SPACE),
-                  _Button(
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).right();
-                      }),
-                ],
-              ),
-              SizedBox(height: _DIRECTION_SPACE),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _Button(
-                      size: _DIRECTION_BUTTON_SIZE,
-                      onTap: () {
-                        Game.of(context).left();
-                      }),
-                  SizedBox(width: _DIRECTION_SPACE),
-                  _Button(
-                    size: _DIRECTION_BUTTON_SIZE,
-                    onTap: () {
-                      Game.of(context).down();
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: _DIRECTION_SPACE),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
 
 class SystemButtonGroup extends StatelessWidget {
-  static const _systemButtonColor = const Color(0xFF2dc421);
-
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        _Description(
-          text: S.of(context).sounds,
-          child: _Button(
-              size: _SYSTEM_BUTTON_SIZE,
-              color: _systemButtonColor,
-              enableLongPress: false,
-              onTap: () {
-                Game.of(context).soundSwitch();
-              }),
-        ),
-        _Description(
-          text: S.of(context).pause_resume,
-          child: _Button(
-              size: _SYSTEM_BUTTON_SIZE,
-              color: _systemButtonColor,
-              enableLongPress: false,
-              onTap: () {
-                Game.of(context).pauseOrResume();
-              }),
-        ),
-        _Description(
-          text: S.of(context).reset,
-          child: _Button(
-              size: _SYSTEM_BUTTON_SIZE,
-              enableLongPress: false,
-              color: Colors.red,
-              onTap: () {
-                Game.of(context).reset();
-              }),
-        )
-      ],
+    return Container(
+      alignment: Alignment.topRight,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          SizedBox(
+            height: 40,
+            child: FloatingActionButton(
+                onPressed: () {
+                  Game.of(context).soundSwitch();
+                },
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.expand(),
+                  child: Image.asset('assets/images/volume_icon.png'),
+                )),
+          ),
+          SizedBox(
+            height: 40,
+            child: FloatingActionButton(
+                onPressed: () {
+                  Game.of(context).pauseOrResume();
+                },
+                child: ConstrainedBox(
+                    constraints: BoxConstraints.expand(),
+                    child: Image.asset('assets/images/play_icon.png'))),
+          ),
+          SizedBox(
+            height: 40,
+            child: FloatingActionButton(
+                onPressed: () {
+                  Game.of(context).reset();
+                },
+                child: ConstrainedBox(
+                    constraints: BoxConstraints.expand(),
+                    child: Image.asset('assets/images/replay_icon.png'))),
+          ),
+        ],
+      ),
     );
   }
 }
 
-class DropButton extends StatelessWidget {
+class Down extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _Description(
-      text: 'drop',
-      child: _Button(
-          enableLongPress: false,
-          size: Size(90, 90),
-          onTap: () {
+    return Container(
+      margin: const EdgeInsets.only(left: 93, bottom: 10),
+      alignment: Alignment.centerLeft,
+      child: IconButton(
+          icon: Icon(Icons.add_circle),
+          iconSize: 60,
+          color: Colors.blue.withOpacity(0),
+          onPressed: () {
             Game.of(context).drop();
           }),
+    );
+  }
+}
+
+class Lines extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(left: 250),
+      alignment: Alignment.bottomRight,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            scale: 2.5, image: AssetImage('assets/images/lines.png')),
+      ),
     );
   }
 }
@@ -204,11 +184,12 @@ class LeftController extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SystemButtonGroup(),
+        Spacer(),
         Expanded(
           child: Center(
-            child: DropButton(),
+            child: Lines(),
           ),
-        )
+        ),
       ],
     );
   }

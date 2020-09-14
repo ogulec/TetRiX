@@ -1,40 +1,42 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tetris/gamer/block.dart';
-import 'package:tetris/gamer/gamer.dart';
-import 'package:tetris/generated/i18n.dart';
-import 'package:tetris/material/briks.dart';
-import 'package:tetris/material/images.dart';
+import 'package:TetRiX/gamer/block.dart';
+import 'package:TetRiX/gamer/gamer.dart';
+import 'package:TetRiX/generated/i18n.dart';
+import 'package:TetRiX/material/briks.dart';
+import 'package:TetRiX/material/images.dart';
 
 class StatusPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8), 
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Text(S.of(context).points,
               style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
+          SizedBox(height: 5),
           Number(number: GameState.of(context).points),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(S.of(context).cleans,
               style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
+          SizedBox(height: 5),
           Number(number: GameState.of(context).cleared),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(S.of(context).level,
               style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
+          SizedBox(height: 5),
           Number(number: GameState.of(context).level),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(S.of(context).next,
               style: TextStyle(fontWeight: FontWeight.bold)),
-          SizedBox(height: 4),
+          SizedBox(height: 5),
           _NextBlock(),
           Spacer(),
+          Text('github.com/ogulec', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+          SizedBox(height: 25),
           _GameStatus(),
         ],
       ),
@@ -52,9 +54,10 @@ class _NextBlock extends StatelessWidget {
         data[i][j] = next[i][j];
       }
     }
-    return Column(
+    return Column( 
       children: data.map((list) {
-        return Row(
+        return Row( 
+          mainAxisAlignment: MainAxisAlignment.end,
           children: list.map((b) {
             return b == 1 ? const Brik.normal() : const Brik.empty();
           }).toList(),

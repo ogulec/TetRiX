@@ -19,42 +19,42 @@ class S implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
-  String get cleans => "Cleans";
-  String get level => "Level";
-  String get next => "Next";
-  String get pause_resume => "PAUSE/RESUME";
-  String get points => "Points";
-  String get reset => "RESET";
-  String get reward => "Reward";
-  String get sounds => "SOUNDS";
+  String get cleans => "Süpürme";
+  String get level => "Seviye";
+  String get next => "Sonraki";
+  String get pause_resume => "Duraklat";
+  String get points => "Puan";
+  String get reset => "Baştan";
+  String get reward => "Ödül";
+  String get sounds => "Ses";
 }
 
 class $en extends S {
   const $en();
 }
 
-class $zh_CN extends S {
-  const $zh_CN();
+class $tr_TR extends S {
+  const $tr_TR();
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
   @override
-  String get next => "下一个";
+  String get next => "Sonraki";
   @override
-  String get reward => "赞赏";
+  String get reward => "Ödül";
   @override
-  String get sounds => "声音";
+  String get sounds => "Ses";
   @override
-  String get pause_resume => "暂停/恢复";
+  String get pause_resume => "Duraklat/Devam";
   @override
-  String get level => "级别";
+  String get level => "Seviye";
   @override
-  String get reset => "重置";
+  String get reset => "Baştan";
   @override
-  String get cleans => "消除";
+  String get cleans => "Süpürme";
   @override
-  String get points => "分数";
+  String get points => "Puan";
 }
 
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
@@ -63,7 +63,7 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale("en", ""),
-      Locale("zh", "CN"),
+      Locale("tr", "TR") 
     ];
   }
 
@@ -106,8 +106,8 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
       switch (lang) {
         case "en":
           return SynchronousFuture<S>(const $en());
-        case "zh_CN":
-          return SynchronousFuture<S>(const $zh_CN());
+        case "tr_TR":
+          return SynchronousFuture<S>(const $tr_TR());   
         default:
           // NO-OP.
       }
