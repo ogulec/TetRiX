@@ -10,13 +10,11 @@ It's a self Flutter learning fun-app which is re-designed and re-coded.
 
 ## **Preview**
 
-![preview](./preview/screen1.png)
-
-![preview](./preview/screen2.png)
+![preview](./preview/screen1.png)![preview](./preview/screen2.png)
 
 ## **Environment**
 
-Coded & build in **VS Code**
+Coded & built on **VS Code**
 
 Tested with **Pixel 3A API 28 Android 9**
 
