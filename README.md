@@ -16,7 +16,7 @@ It's a self Flutter learning fun-app which is re-designed and re-coded.
 
 ## **Environment**
 
-Coded & build in **VS Code**
+Coded & built on **VS Code**
 
 Tested with **Pixel 3A API 28 Android 9**
 
