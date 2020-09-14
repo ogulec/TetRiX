@@ -1,6 +1,8 @@
 # TetRiX
 
-**TetRiX** is a Retro Tetris game powered by **Flutter**.
+**TetRiX** is a Retro Tetris game powered by 
+
+[![N|Flutter](https://lh3.googleusercontent.com/proxy/PNsKnjzneG46I68kIAUa7SbSfcV_19TP6c5UuPJQVJ_snXsr3GYxtZXjbsmbExFfkuTFlULFbmLyonlau2ykfGXXkUYdmGkmZ2GMdRX4vVSjiDkwdq_j_gmLc7kJrLdxUao)](https://flutter.dev/).
 
 It's a self Flutter learning fun-app which is re-designed and re-coded.
 
@@ -16,7 +18,9 @@ It's a self Flutter learning fun-app which is re-designed and re-coded.
 
 Coded & built on **VS Code**
 
-Tested with **Pixel 3A API 28 Android 9**
+Tested with:
+**Pixel 3A API 28 Android 9**
+**Nexus 5X API 28 Android 9**
 
 
 
