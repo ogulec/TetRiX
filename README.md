@@ -2,7 +2,7 @@
 
 **TetRiX** is a Retro Tetris game powered by 
 
-[![N|Flutter](https://repository-images.githubusercontent.com/90528830/018a6400-d879-11e9-92b4-492c61d9bc32)](https://flutter.dev/)
+[![N|Flutter](https://raw.githubusercontent.com/flutter/website/master/src/_assets/image/flutter-lockup.png)](https://flutter.dev/)
 
 It's a self Flutter learning fun-app which is re-designed and re-coded.
 
